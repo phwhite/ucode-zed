@@ -1,18 +1,17 @@
-; ===== make ${…} stand out (safe) =====
-; Delimiters
-(template_substitution "$" @punctuation.special)
-(template_substitution "{" @punctuation.bracket)
-(template_substitution "}" @punctuation.bracket)
-
-; Treat the entire expression region as embedded (no type assumptions)
-(template_substitution
-  (_) @embedded)
-(#set! priority 110)
-
-; Optionally color the opening/closing backticks themselves
+; Color the opening/closing backticks themselves
 (template_string "`" @punctuation.special)
 
+;; Strings
+(string) @string
+(template_string) @string
+(escape_sequence) @string.escape
+
+;; Template interpolation: highlight inner expression; delimiters inherit
+(template_substitution
+  (_)) @embedded
+
 ; ===== literals & comments =====
+(hash_bang_line) @comment
 (comment) @comment
 (number)  @number
 (true)    @boolean
@@ -22,11 +21,6 @@
 ; ----- normal quoted strings only (exclude backticks) -----
 ((string) @string (#match? @string "^\""))
 ((string) @string (#match? @string "^'"))
-
-; ----- template pieces (not the whole node) -----
-(template_text)   @string
-(template_escape) @string
-(template_dollar) @string
 
 ; ===== identifiers, vars, params =====
 (identifier) @variable
@@ -62,3 +56,28 @@
   "?" ":" "." "," ";"
 ] @operator
 
+; ===== import =====
+(import_statement
+  "import" @keyword)
+
+(import_statement
+  "from" @keyword)
+
+(import_statement
+  source: (string) @string)
+
+(import_namespace
+  "*" @operator
+  "as" @keyword
+  name: (identifier) @namespace)
+
+(import_named
+  "{" @punctuation.bracket
+  "}" @punctuation.bracket)
+
+(import_named
+  "," @punctuation.delimiter)
+
+(import_specifier
+  name:  (identifier) @variable
+  alias: (identifier) @variable)

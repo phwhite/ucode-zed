@@ -8,5 +8,5 @@ repository = "https://github.com/phwhite/ucode-zed"
 
 [grammars.ucode]
 repository = "https://github.com/phwhite/tree-sitter-ucode"
-rev = "9f778b07db212311fd44fa86234d920ab4dbb8f1"
+rev = "d6024ed7928f435b33133d97ff220f5e0bdbbae8"
 
