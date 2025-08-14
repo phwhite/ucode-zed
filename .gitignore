@@ -1,0 +1,30 @@
+# =======================
+# Rust / Cargo
+# =======================
+/target/
+/grammars/
+Cargo.lock
+**/*.rs.bk
+
+# Build artifacts
+*.rlib
+*.rmeta
+*.d
+*.wasm
+
+# =======================
+# Zed-specific
+# =======================
+# Dev extension build outputs
+/dist/
+*.wasm
+
+# Extension packaging artifacts
+*.zip
+
+# =======================
+# OS / Editor cruft
+# =======================
+.DS_Store
+.AppleDouble
+.LSOverride

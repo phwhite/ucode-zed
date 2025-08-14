@@ -1,0 +1,12 @@
+id = "ucode"
+name = "UCode"
+version = "0.1.1"
+schema_version = 1
+authors = ["Paul White <phwhite@gmail.com>"]
+description = "UCode language support: grammar + highlighting (incl. template strings), brackets, outline & indents."
+repository = "https://github.com/phwhite/ucode-zed"
+
+[grammars.ucode]
+repository = "https://github.com/phwhite/tree-sitter-ucode"
+rev = "9f778b07db212311fd44fa86234d920ab4dbb8f1"
+
