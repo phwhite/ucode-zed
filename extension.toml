@@ -1,0 +1,12 @@
+id = "ucode"
+name = "ucode"
+version = "0.1.3"
+schema_version = 1
+authors = ["Paul White <phwhite@gmail.com>"]
+description = "ucode (https://ucode.mein.io/) scripting language support (primarily used in OpenWrt/OpenWifi)"
+repository = "https://github.com/phwhite/ucode-zed"
+
+[grammars.ucode]
+repository = "https://github.com/phwhite/tree-sitter-ucode"
+rev = "f4f4e2e07bf9d65d35565dd00d0ded1902573d98"
+
